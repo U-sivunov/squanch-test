@@ -7,9 +7,9 @@
         <option value="" selected></option>
         <option>Alive</option>
         <option>Dead</option>
-        <option>unknown</option>
+        <option>Unknown</option>
       </select>
-    <button @click="applyFilters">Применить</button>
+    <button @click="applyFilters">Apply</button>
   </div>
   <PaginationBar v-model="state.page"
                  :total-row="state.totalCount" :align="'center'" :page-size-menu="[20]"
@@ -107,6 +107,8 @@
     align-items: center;
     flex-wrap: wrap;
     max-width: 1920px;
+    background: rgb(39, 43, 51);
+    margin-top: 4px;
   }
 
   .filter-row {
@@ -115,6 +117,7 @@
     justify-content: center;
     gap: 10px;
     align-items: stretch;
+    margin-bottom: 4px;
   }
 
 </style>

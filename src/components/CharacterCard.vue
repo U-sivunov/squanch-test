@@ -5,16 +5,16 @@
     </div>
     <div class="card-text">
       <div class="section">
-        <h2>{{character.name}}</h2>
-        <span class="status"><span class="status-icon"></span> {{character.status}} - {{character.species}}</span>
+        <h2 class="hovered">{{character.name}}</h2>
+        <div class="status"><span class="status-icon" :class="character.status"></span> {{character.status}} - {{character.species}}</div>
       </div>
       <div class="section">
-        <span class="text-gray">Last known location:</span>
-        <p>{{character.location.name}}</p>
+        <span class="text-title">Last known location:</span>
+        <span class="hovered">{{character.location.name}}</span>
       </div>
       <div class="section">
-        <span class="text-gray">First seen in:</span>
-        <p>{{character.firstEpisodeName}}</p></div>
+        <span class="text-title">First seen in:</span>
+        <span class="hovered">{{character.firstEpisodeName}}</span></div>
     </div>
   </div>
 </template>
@@ -31,7 +31,6 @@
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
   .card {
-    font: 112.5% / 1.625 -apple-system, 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
     width: 600px;
     height: 220px;
     display: flex;
@@ -60,7 +59,7 @@
       flex: 3 1 0;
       position: relative;
       padding: 0.75rem;
-      color: rgb(255, 255, 255);
+      color: rgb(245, 245, 245);
       display: flex;
       flex-direction: column;
       text-align: start;
@@ -83,11 +82,52 @@
         }
       }
 
+      .status {
+        display: flex;
+        -webkit-box-align: center;
+        align-items: center;
+        text-transform: capitalize;
+        font-size: 16px;
+        font-weight: 500;
+        color: rgb(255, 255, 255);
+
+        .status-icon {
+          height: 0.5rem;
+          width: 0.5rem;
+          margin-right: 0.375rem;
+          font-size: 16px;
+          border-radius: 50%;
+
+          &.Alive {
+            background: rgb(85, 204, 68);
+          }
+
+          &.Dead {
+            background: rgb(214, 61, 46);
+          }
+
+          &.unknown {
+            background: rgb(220, 220, 46);
+          }
+        }
+      }
+
+      .text-title {
+        color: rgb(158, 158, 158);
+        font-size: 16px;
+        font-weight: 500;
+      }
+
       h2 {
         margin: 0;
         padding: 0;
         font-weight: 800;
         line-height: 1.1
+      }
+
+      .hovered:hover {
+        color: rgb(255, 152, 0);
+        cursor: pointer;
       }
     }
   }

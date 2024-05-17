@@ -12,8 +12,7 @@
     "core-js": "^3.8.3",
     "lodash": "^4.17.21",
     "v-page": "^3.0.0",
-    "vue": "^3.2.13",
-    "vue3-spinners": "^1.2.2"
+    "vue": "^3.2.13"
   },
   "devDependencies": {
     "@babel/core": "^7.12.16",
