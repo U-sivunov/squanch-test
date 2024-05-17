@@ -32,12 +32,15 @@
 
   export default {
     name: 'CharactersList',
+
     components: {
       CharacterCard,
       PaginationBar
     },
+
     setup() {
       let episodeNameById;
+
       const state = reactive({
         list: [],
         page: 1,
@@ -45,6 +48,7 @@
         nameFilter: '',
         statusFilter: '',
       });
+
       const getCharactersPage = () => {
         const params = {
           page: state.page,
@@ -63,14 +67,17 @@
             state.totalCount = 0;
           });
       }
+
       const applyFilters = () => {
         state.page = 1;
         getCharactersPage();
       }
+
       const changePage = (data) => {
         state.page = data.pageNumber;
         getCharactersPage();
       }
+
       const fillFirstSeenInFields = () => {
         const firstSeenEpisodes = lodash.map(state.list, getFirstEpisodeIdFromCharacter);
         const uniqueFirstSeenEpisodesId = lodash.uniq(firstSeenEpisodes);
@@ -97,7 +104,6 @@
   }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
   .list {
     display: flex;
